@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MetodePembayaranController;
-
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,4 +40,14 @@ Route::controller(MetodePembayaranController::class)->prefix('metode_pembayaran'
     Route::post('edit/{id}', 'update')->name('metode_pembayaran.tambah.update');
     Route::get('hapus/{id}', 'hapus')->name('metode_pembayaran.hapus');
     Route::get('search', 'search')->name('metode_pembayaran.search');
+});
+
+Route::controller(UserController::class)->prefix('user')->group(function () {
+    Route::get('', 'index')->name('user');
+    Route::get('tambah', 'tambah')->name('user.tambah');
+    Route::post('tambah', 'simpan')->name('user.tambah.simpan');
+    Route::get('edit/{id}', 'edit')->name('user.edit');
+    Route::post('edit/{id}', 'update')->name('user.tambah.update');
+    Route::get('hapus/{id}', 'hapus')->name('user.hapus');
+    Route::get('search', 'search')->name('user.search');
 });
