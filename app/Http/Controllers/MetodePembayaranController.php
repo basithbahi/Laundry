@@ -51,26 +51,24 @@ class MetodePembayaranController extends Controller
 
     public function hapus($id)
     {
-        try {
-            $metode_pembayaran = MetodePembayaran::find($id);
+        // try {
+        //     $metode_pembayaran = MetodePembayaran::find($id);
 
-            if ($metode_pembayaran->jadwal()->exists()) {
-                throw new GlobalException("Tidak dapat menghapus metode_pembayaran yang masih memiliki jadwal terkait.");
-            }
+        //     if ($metode_pembayaran->jadwal()->exists()) {
+        //         throw new GlobalException("Tidak dapat menghapus metode_pembayaran yang masih memiliki jadwal terkait.");
+        //     }
 
-            $metode_pembayaran->delete();
+        //     $metode_pembayaran->delete();
 
-            return redirect()->route('metode_pembayaran')->with('success', 'Data metode pembayaran berhasil dihapus');
-        } catch (FFIException $e) {
-            return redirect()->back()->withErrors([$e->getMessage()]);
+        //     return redirect()->route('metode_pembayaran')->with('success', 'Data metode pembayaran berhasil dihapus');
+        // } catch (FFIException $e) {
+        //     return redirect()->back()->withErrors([$e->getMessage()]);
             
-        }
+        // }
+        MetodePembayaran::find($id)->delete();
+
+            return redirect()->route('metode_pembayaran');  
     }
-//         MetodePembayaran::find($id)->delete();
-
-//             return redirect()->route('metode_pembayaran');  
-//     }
-
     public function search(Request $request)
     {
         $query = $request->input('query');
