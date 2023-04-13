@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MetodePembayaranController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +31,13 @@ Route::middleware('auth')->group(function () {
     Route::get('dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+});
+Route::controller(MetodePembayaranController::class)->prefix('metode_pembayaran')->group(function () {
+    Route::get('', 'index')->name('metode_pembayaran');
+    Route::get('tambah', 'tambah')->name('metode_pembayaran.tambah');
+    Route::post('tambah', 'simpan')->name('metode_pembayaran.tambah.simpan');
+    Route::get('edit/{id}', 'edit')->name('metode_pembayaran.edit');
+    Route::post('edit/{id}', 'update')->name('metode_pembayaran.tambah.update');
+    Route::get('hapus/{id}', 'hapus')->name('metode_pembayaran.hapus');
+    Route::get('search', 'search')->name('metode_pembayaran.search');
 });

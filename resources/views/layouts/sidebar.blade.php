@@ -63,10 +63,11 @@
             <span>Transaksi</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('dashboard') }}">
-            <i class="fas fa-fw fa-wallet"></i>
-            <span>Metode Pembayatan</span></a>
+        <a class="nav-link" href="{{ route('metode_pembayaran') }}">
+            <i class="nav-icon fas fa-wallet"></i>
+            <span>Metode Pembayaran</span></a>
     </li>
+
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
