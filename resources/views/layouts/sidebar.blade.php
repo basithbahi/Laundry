@@ -1,9 +1,11 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard">
         <div class="sidebar-brand-icon">
-            <i class="fas fa-dryer"></i>
+            <i class="fas fa-fw fa-water"></i>
         </div>
         <div class="sidebar-brand-text mx-3">LAUNDRY</div>
     </a>
@@ -28,39 +30,29 @@
             <span>User</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('dashboard') }}">
-            <i class="fas fa-fw fa-costume"></i>
+        <a class="nav-link" href="{{ route('jenis_cucian') }}">
+            <i class="fas fa-fw fa-tshirt"></i>
             <span>Jenis Cucian</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('dashboard') }}">
-            <i class="fas fa-fw fa-trailer"></i>
-            <span>Gerbong</span></a>
+        <a class="nav-link" href="{{ route('jenis_pencuci') }}">
+            <i class="fas fa-fw fa-soap"></i>
+            <span>Jenis Pencuci</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('dashboard') }}">
-            <i class="fas fa-fw fa-couch"></i>
-            <span>Kursi</span></a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('dashboard') }}">
-            <i class="fas fa-fw fa-calendar"></i>
-            <span>Jadwal Kereta Api</span></a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('dashboard') }}">
-            <i class="fas fa-fw fa-route"></i>
-            <span>Rute</span></a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('dashboard') }}">
-            <i class="fas fa-fw fa-building"></i>
-            <span>Stasiun</span></a>
+        <a class="nav-link" href="{{ route('tipe_laundry') }}">
+            <i class="fas fa-fw fa-shopping-basket"></i>
+            <span>Tipe Laundry</span></a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{ route('dashboard') }}">
             <i class="fas fa-fw fa-history"></i>
             <span>Transaksi</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('dashboard') }}">
+            <i class="fas fa-fw fa-tasks"></i>
+            <span>Status Pencucian</span></a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{ route('dashboard') }}">
