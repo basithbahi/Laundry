@@ -34,7 +34,7 @@
 								<option value="" selected disabled hidden>-- Pilih Jenis Cucian --</option>
 								@foreach ($jenis_cucian as $row)
 									<option value="{{ $row->id }}" {{ isset($transaksi) ? ($transaksi->id_jenis_cucian == $row->id ? 'selected' : '') : '' }}>
-                    {{ $row->nama_kereta }} - {{ $row->jenis_kereta }}
+                    {{ $row->id_jenis_cucian }} - {{ $row->jenis_cucian }}
                   </option>
 								@endforeach
 							</select>
@@ -43,9 +43,9 @@
               <label for="id_tipe_laundry">Tipe Laundry</label>
 							<select name="id_tipe_laundry" id="id_tipe_laundry" class="custom-select">
 								<option value="" selected disabled hidden>-- Pilih Tipe Laundry --</option>
-								@foreach ($kereta as $row)
+								@foreach ($tipe_laundry as $row)
 									<option value="{{ $row->id }}" {{ isset($transaksi) ? ($transaksi->id_tipe_laundry == $row->id ? 'selected' : '') : '' }}>
-                    {{ $row->nama_kereta }} - {{ $row->jenis_kereta }}
+                    {{ $row->id_tipe_laundry }} - {{ $row->tipe_laundry }}
                   </option>
 								@endforeach
 							</select>
@@ -54,9 +54,9 @@
               <label for="id_jenis_pencuci">Jenis Pencuci</label>
 							<select name="id_jenis_pencuci" id="id_jenis_pencuci" class="custom-select">
 								<option value="" selected disabled hidden>-- Pilih Jenis Pencuci --</option>
-								@foreach ($kereta as $row)
+								@foreach ($jenis_pencuci as $row)
 									<option value="{{ $row->id }}" {{ isset($transaksi) ? ($transaksi->id_jenis_pencuci == $row->id ? 'selected' : '') : '' }}>
-                    {{ $row->nama_kereta }} - {{ $row->jenis_kereta }}
+                    {{ $row->id_jenis_pencuci }} - {{ $row->jenis_pencuci }}
                   </option>
 								@endforeach
 							</select>

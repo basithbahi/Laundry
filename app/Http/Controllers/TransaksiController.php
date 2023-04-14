@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Transaksi;
+use App\Models\User;
+use App\Models\JenisCucian;
+use App\Models\TipeLaundry;
+use App\Models\JenisPencuci;
 use App\Http\Controllers\Exception;
 use Exception as GlobalException;
 use FFI\Exception as FFIException;
@@ -19,13 +23,12 @@ class TransaksiController extends Controller
 
     public function tambah()
     {
-        $transaksi = Transaksi::find($id);
         $user = User::get();
         $jenis_cucian = JenisCucian::get();
         $tipe_laundry = TipeLaundry::get();
         $jenis_pencuci = JenisPencuci::get();
 
-        return view('transaksi.form', ['transaksi' => $transaksi, 'user' => $user, 'jenis_cucian' 
+        return view('transaksi.form', ['user' => $user, 'jenis_cucian' 
         => $jenis_cucian, 'tipe_laundry' => $tipe_laundry, 'jenis_pencuci' => $jenis_pencuci]);
     }
 
