@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TipeLaundryController;
 use App\Http\Controllers\JenisCucianController;
 use App\Http\Controllers\JenisPencuciController;
+use App\Http\Controllers\TransaksiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,4 +97,14 @@ Route::controller(AdminController::class)->prefix('admin')->group(function () {
     Route::post('edit/{id}', 'update')->name('admin.tambah.update');
     Route::get('hapus/{id}', 'hapus')->name('admin.hapus');
     Route::get('search', 'search')->name('admin.search');
+});
+
+Route::controller(TransaksiController::class)->prefix('transaksi')->group(function () {
+    Route::get('', 'index')->name('transaksi');
+    Route::get('tambah', 'tambah')->name('transaksi.tambah');
+    Route::post('tambah', 'simpan')->name('transaksi.tambah.simpan');
+    Route::get('edit/{id}', 'edit')->name('transaksi.edit');
+    Route::post('edit/{id}', 'update')->name('transaksi.tambah.update');
+    Route::get('hapus/{id}', 'hapus')->name('transaksi.hapus');
+    Route::get('search', 'search')->name('transaksi.search');
 });

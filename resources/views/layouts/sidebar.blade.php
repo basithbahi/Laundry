@@ -45,7 +45,7 @@
             <span>Tipe Laundry</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('dashboard') }}">
+        <a class="nav-link" href="{{ route('transaksi') }}">
             <i class="fas fa-fw fa-history"></i>
             <span>Transaksi</span></a>
     </li>
