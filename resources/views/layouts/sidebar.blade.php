@@ -20,12 +20,12 @@
             <span>Dashboard</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('dashboard') }}">
+        <a class="nav-link" href="{{ route('admin') }}">
             <i class="fas fa-fw fa-user"></i>
             <span>Admin</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('dashboard') }}">
+        <a class="nav-link" href="{{ route('user') }}">
             <i class="fas fa-fw fa-users"></i>
             <span>User</span></a>
     </li>
@@ -55,9 +55,9 @@
             <span>Status Pencucian</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('dashboard') }}">
+        <a class="nav-link" href="{{ route('metode_pembayaran') }}">
             <i class="fas fa-fw fa-wallet"></i>
-            <span>Metode Pembayatan</span></a>
+            <span>Metode Pembayaran</span></a>
     </li>
 
     <!-- Divider -->

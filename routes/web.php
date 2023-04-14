@@ -2,9 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\JenisPencuciController;
-use App\Http\Controllers\JenisCucianController;
+use App\Http\Controllers\MetodePembayaranController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TipeLaundryController;
+use App\Http\Controllers\JenisCucianController;
+use App\Http\Controllers\JenisPencuciController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,4 +66,34 @@ Route::controller(TipeLaundryController::class)->prefix('tipe_laundry')->group(f
     Route::post('edit/{id}', 'update')->name('tipe_laundry.tambah.update');
     Route::get('hapus/{id}', 'hapus')->name('tipe_laundry.hapus');
     Route::get('search', 'search')->name('tipe_laundry.search');
+});
+
+Route::controller(MetodePembayaranController::class)->prefix('metode_pembayaran')->group(function () {
+    Route::get('', 'index')->name('metode_pembayaran');
+    Route::get('tambah', 'tambah')->name('metode_pembayaran.tambah');
+    Route::post('tambah', 'simpan')->name('metode_pembayaran.tambah.simpan');
+    Route::get('edit/{id}', 'edit')->name('metode_pembayaran.edit');
+    Route::post('edit/{id}', 'update')->name('metode_pembayaran.tambah.update');
+    Route::get('hapus/{id}', 'hapus')->name('metode_pembayaran.hapus');
+    Route::get('search', 'search')->name('metode_pembayaran.search');
+});
+
+Route::controller(UserController::class)->prefix('user')->group(function () {
+    Route::get('', 'index')->name('user');
+    Route::get('tambah', 'tambah')->name('user.tambah');
+    Route::post('tambah', 'simpan')->name('user.tambah.simpan');
+    Route::get('edit/{id}', 'edit')->name('user.edit');
+    Route::post('edit/{id}', 'update')->name('user.tambah.update');
+    Route::get('hapus/{id}', 'hapus')->name('user.hapus');
+    Route::get('search', 'search')->name('user.search');
+});
+
+Route::controller(AdminController::class)->prefix('admin')->group(function () {
+    Route::get('', 'index')->name('admin');
+    Route::get('tambah', 'tambah')->name('admin.tambah');
+    Route::post('tambah', 'simpan')->name('admin.tambah.simpan');
+    Route::get('edit/{id}', 'edit')->name('admin.edit');
+    Route::post('edit/{id}', 'update')->name('admin.tambah.update');
+    Route::get('hapus/{id}', 'hapus')->name('admin.hapus');
+    Route::get('search', 'search')->name('admin.search');
 });
