@@ -17,5 +17,4 @@ class Admin extends Model
     {
         return $this->hasMany(Jadwal::class, 'id_admin');
     }
-
 }

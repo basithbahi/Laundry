@@ -30,6 +30,7 @@
               <th>JK</th>
               <th>email</th>
               <th>password</th>
+              <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
