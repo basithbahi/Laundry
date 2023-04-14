@@ -18,7 +18,7 @@
             <span>Dashboard</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('dashboard') }}">
+        <a class="nav-link" href="{{ route('admin') }}">
             <i class="fas fa-fw fa-user"></i>
             <span>Admin</span></a>
     </li>

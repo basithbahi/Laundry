@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MetodePembayaranController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,4 +51,14 @@ Route::controller(UserController::class)->prefix('user')->group(function () {
     Route::post('edit/{id}', 'update')->name('user.tambah.update');
     Route::get('hapus/{id}', 'hapus')->name('user.hapus');
     Route::get('search', 'search')->name('user.search');
+});
+
+Route::controller(AdminController::class)->prefix('admin')->group(function () {
+    Route::get('', 'index')->name('admin');
+    Route::get('tambah', 'tambah')->name('admin.tambah');
+    Route::post('tambah', 'simpan')->name('admin.tambah.simpan');
+    Route::get('edit/{id}', 'edit')->name('admin.edit');
+    Route::post('edit/{id}', 'update')->name('admin.tambah.update');
+    Route::get('hapus/{id}', 'hapus')->name('admin.hapus');
+    Route::get('search', 'search')->name('admin.search');
 });
