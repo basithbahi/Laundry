@@ -26,10 +26,11 @@
               <th>NIK</th>
               <th>Nama</th>
               <th>Alamat</th>
-              <th>ttl</th>
+              <th>TTL</th>
               <th>JK</th>
-              <th>email</th>
-              <th>password</th>
+              <th>Email</th>
+              <th>Password</th>
+              <th>Aksi</th>
             </tr>
           </thead>
           <tbody>

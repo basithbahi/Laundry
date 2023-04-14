@@ -65,20 +65,6 @@ class AdminController extends Controller
 
     public function hapus($id)
     {
-        /**try {
-            $admin = Admin::find($id);
-
-            if ($admin->jadwal()->exists()) {
-                throw new GlobalException("Tidak dapat menghapus admin yang masih memiliki jadwal terkait.");
-            }
-
-            $admin->delete();
-
-            return redirect()->route('admin')->with('success', 'Data admin berhasil dihapus');
-        } catch (FFIException $e) {
-            return redirect()->back()->withErrors([$e->getMessage()]);
-            
-        }*/
         Admin::find($id)->delete();
 
             return redirect()->route('admin');
