@@ -35,6 +35,9 @@
         <tbody>
             @php($no = 1)
             @foreach ($user as $row)
+            @if ()
+
+            @endif
             <tr>
                 <th>{{ $no++ }}</th>
                 <td>{{ $row->nik }}</td>

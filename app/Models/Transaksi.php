@@ -8,14 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Transaksi extends Model
 {
     use HasFactory;
-    
-    protected $table = 'Transaksi';
+
+    protected $table = 'transaksi';
 
     protected $fillable = ['id_transaksi', 'id_user', 'id_jenis_cucian', 'id_tipe_laundry', 'id_jenis_pencuci', 'berat_cucian'];
 
     public function user()
     {
-        return $this->belongsTo(Kereta::class, 'id_user');
+        return $this->belongsTo(User::class, 'id_user');
     }
 
     public function jenis_cucian()

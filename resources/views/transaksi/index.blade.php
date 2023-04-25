@@ -33,7 +33,7 @@
               <th>Jenis Cucian</th>
               <th>Tipe Laundry</th>
               <th>Jenis Pencuci</th>
-              <th>Berat Cucian</th>
+              <th>Berat Cucian (Kg)</th>
 			    @if (auth()->user()->level == 'Admin')
                     <th>Aksi</th>
 				@endif
@@ -45,11 +45,11 @@
               <tr>
                 <th>{{ $no++ }}</th>
                 <td>{{ $row->id_transaksi }}</td>
-                <td>{{ $row->User->nama }}</td>
-                <td>{{ $row->JenisCucian->id_jenis_cucian }} - {{ $row->JenisCucian->jenis_cucian }}</td>
-                <td>{{ $row->TipeLaundry->id_tipe_laundry }} - {{ $row->TipeLaundry->jenis_cucian }}</td>
-                <td>{{ $row->JenisPencuci->id_jenis_pencuci }} - {{ $row->JenisPencuci->jenis_cucian }}</td>
-                <td>{{ $row->berat_cucian }}</td>
+                <td>{{ $row->user->nama }}</td>
+                <td>{{ $row->jenis_cucian->jenis_cucian }}</td>
+                <td>{{ $row->tipe_laundry->tipe_laundry }}</td>
+                <td>{{ $row->jenis_pencuci->jenis_pencuci }}</td>
+                <td>{{ $row->berat_cucian}}</td>
 				@if (auth()->user()->level == 'Admin')
                     <td>
                         <a href="{{ route('transaksi.edit', $row->id) }}" class="btn btn-warning">Edit &nbsp;&nbsp;&nbsp;<i class="fas fa-pen"></i></a>
