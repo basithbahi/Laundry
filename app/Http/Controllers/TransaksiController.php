@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\JenisCucian;
 use App\Models\TipeLaundry;
 use App\Models\JenisPencuci;
+use App\Models\MetodePembayaran;
+use App\Models\RiwayatTransaksi;
 use App\Http\Controllers\Exception;
 use Exception as GlobalException;
 use FFI\Exception as FFIException;
@@ -80,6 +82,28 @@ class TransaksiController extends Controller
         Transaksi::find($id)->delete();
 
         return redirect()->route('transaksi');
+    }
+
+    public function bayar($id)
+    {
+        $transaksi = Transaksi::find($id);
+        $metode_pembayaran = MetodePembayaran::find($id);
+
+        return view('transaksi.bayar', ['transaksi' => $transaksi, 'metode_pembayaran' => $metode_pembayaran]);
+    }
+
+    public function upload(Request $request)
+    {
+        $data = [
+            'id_riwayat_transaksi' => $request->id_riwayat_transaksi,
+            'id_transaksi' => $request->id_transaksi,
+            'metode_pembayaran' => $request->metode_pembayaran,
+            'total_bayar' => $request->total_bayar,
+        ];
+
+        RiwayatTransaksi::create($data);
+
+        return redirect()->route('riwayat_transaksi');
     }
 
     public function search(Request $request)

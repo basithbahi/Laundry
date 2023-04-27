@@ -26,8 +26,8 @@
               <th>NIK</th>
               <th>Nama</th>
               <th>Alamat</th>
-              <th>TTL</th>
-              <th>JK</th>
+              <th>Tanggal Lahir</th>
+              <th>Jenis Kelamin</th>
               <th>Email</th>
               <th>Password</th>
               <th>Aksi</th>
@@ -35,7 +35,7 @@
           </thead>
           <tbody>
             @php($no = 1)
-            @foreach ($admin as $row)
+            @foreach (DB::table('users')->where('level', 'admin')->get() as $row)
               <tr>
                 <th>{{ $no++ }}</th>
                 <td>{{ $row->nik }}</td>
@@ -48,7 +48,7 @@
                 <td>
                     <a href="{{ route('admin.edit', $row->id) }}" class="btn btn-warning">Edit &nbsp;&nbsp;&nbsp;<i class="fas fa-pen"></i></a>
                     <a href="{{ route('admin.hapus', $row->id) }}" class="btn btn-danger">Hapus &nbsp;&nbsp;&nbsp;<i class="fas fa-trash-alt "></i></a>
-            </td>
+                </td>
               </tr>
             @endforeach
           </tbody>

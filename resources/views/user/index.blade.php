@@ -30,14 +30,12 @@
             <th>JK</th>
             <th>email</th>
             <th>password</th>
+            <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
             @php($no = 1)
-            @foreach ($user as $row)
-            @if ()
-
-            @endif
+            @foreach (DB::table('users')->where('level', 'user')->get() as $row)
             <tr>
                 <th>{{ $no++ }}</th>
                 <td>{{ $row->nik }}</td>

@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title', 'Form Transaksi')
+@section('title', 'Form Bayar')
 
 @section('contents')
 
     <form
-        action="{{ isset($transaksi) ? route('transaksi.tambah.update', $transaksi->id) : route('transaksi.tambah.simpan') }}"
+        action="{{ isset($transaksi) ? route('riwayat_transaksi.tambah.update', $transaksi->id) : route('riwayat_transaksi.tambah.simpan') }}"
         method="post">
         @csrf
         <div class="row">
@@ -16,6 +16,11 @@
                             {{ isset($transaksi) ? 'Form Edit Transaksi' : 'Form Tambah Transaksi' }}</h6>
                     </div>
                     <div class="card-body">
+                        <div class="form-group">
+                            <label for="id_riwayat_transaksi">ID Riwayat Transaksi</label>
+                            <input type="text" class="form-control" id="id_riwayat_transaksi"
+                                name="id_riwayat_transaksi">
+                        </div>
                         <div class="form-group">
                             <label for="id_transaksi">ID Transaksi</label>
                             <input type="text" class="form-control" id="id_transaksi" name="id_transaksi"
@@ -73,10 +78,38 @@
                             <label for="berat_cucian">Berat Cucian (Kg)</label>
                             <input type="text" class="form-control" id="berat_cucian" name="berat_cucian"
                                 value="{{ isset($transaksi) ? $transaksi->berat_cucian : '' }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="total_harga">Total Harga</label>
+                            @php
+                                $harga_jenis_cucian = isset($transaksi) ? $transaksi->jenis_cucian->harga : 0;
+                                $harga_tipe_laundry = isset($transaksi) ? $transaksi->tipe_laundry->harga : 0;
+                                $harga_jenis_pencuci = isset($transaksi) ? $transaksi->jenis_pencuci->harga : 0;
+                                $berat_cucian = isset($transaksi) ? $transaksi->berat_cucian : 0;
+                                $total_harga = $berat_cucian * $harga_jenis_cucian + $berat_cucian * $harga_tipe_laundry + $berat_cucian * $harga_jenis_pencuci;
+                            @endphp
+                            <input type="text" class="form-control" id="total_harga" name="total_harga"
+                                value="Rp{{ number_format($total_harga) }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="id_total_bayar">Total Bayar</label>
+                            <input type="text" class="form-control" id="id_total_bayar" name="id_total_bayar">
+                        </div>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <button type="submit" class="btn btn-primary"
+                            onclick="
+                                if (document.getElementById('id_total_bayar').value < {{ $total_harga }}) {
+                                    alert('Pembayaran Kurang!');
+                                } else {
+                                    alert('Pembayaran Berhasil!');
+                                    window.location.href = '{{ route('riwayat_transaksi.index') }}';
+                                }
+                            ">
+                            Bayar
+                        </button>
                     </div>
+
                 </div>
             </div>
         </div>
