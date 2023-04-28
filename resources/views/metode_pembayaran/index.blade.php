@@ -17,7 +17,7 @@
         </form>
       </div>
     <div class="card-body">
-        <a href="{{ route('metode_pembayaran.tambah') }}" class="btn btn-success mb-3"><i class="fas fa-plus"></i>&nbsp;&nbsp;&nbsp;Tambah Admin</a>
+        <a href="{{ route('metode_pembayaran.tambah') }}" class="btn btn-success mb-3"><i class="fas fa-plus"></i>&nbsp;&nbsp;&nbsp;Tambah Metode Pembayaran</a>
       <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
