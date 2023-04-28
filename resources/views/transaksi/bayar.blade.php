@@ -31,10 +31,9 @@
                             <select name="id_metode_pembayaran" id="id_metode_pembayaran" class="custom-select">
                                 <option value="" selected disabled hidden>-- Pilih Metode Pembayaran --</option>
                                 @foreach ($metode_pembayaran as $row)
-                                    <option value="{{ $row->id }}"
-                                        {{ isset($transaksi) ? ($transaksi->id_metode_pembayaran == $row->id ? 'selected' : '') : '' }}>
-                                        {{ $row->metode_pembayaran }}
-                                    </option>
+                                    @if (is_object($row))
+                                        <option value="{{ $row->id }}">{{ $row->metode_pembayaran }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>

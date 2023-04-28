@@ -15,6 +15,6 @@ class MetodePembayaran extends Model
 
     public function transaksi()
     {
-        return $this->hasMany(Transaksi::class, 'invoice');
+        return $this->hasMany(Transaksi::class, 'id_transaksi');
     }
 }
