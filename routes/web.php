@@ -123,7 +123,8 @@ Route::controller(RiwayatTransaksiController::class)->prefix('riwayat_transaksi'
     Route::get('search', 'search')->name('riwayat_transaksi.search');
 });
 
-
-Route::get('/home', function () {
-    return view('home');
+Route::middleware('auth')->group(function () {
+    Route::get('home', function () {
+        return view('home');
+    })->name('home');
 });
