@@ -21,3 +21,4 @@ class JenisCucianSeeder extends Seeder
         ]);
     }
 }
+
