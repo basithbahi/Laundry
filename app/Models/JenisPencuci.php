@@ -18,3 +18,4 @@ class JenisPencuci extends Model
         return $this->hasMany(Transaksi::class, 'id_jenis_pencuci');
     }
 }
+
