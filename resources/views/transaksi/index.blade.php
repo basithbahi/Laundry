@@ -57,6 +57,8 @@
                         <a href="{{ route('transaksi.edit', $row->id) }}" class="btn btn-warning"><i class="fas fa-pen"></i></a>
                         <a href="{{ route('transaksi.hapus', $row->id) }}" class="btn btn-danger"><i class="fas fa-trash-alt "></i></a>
                         <a href="{{ route('transaksi.bayar', $row->id) }}" class="btn btn-info"><i class="fas fa-money-bill "></i></a>
+                        <a href="{{ route('transaksi.cetak', $row->id) }}" class="btn btn-info"><i class="fas fa-money-bill "></i></a>
+
                     </td>
 				@endif
               </tr>
