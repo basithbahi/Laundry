@@ -122,3 +122,9 @@ Route::controller(RiwayatTransaksiController::class)->prefix('riwayat_transaksi'
     Route::get('hapus/{id}', 'hapus')->name('riwayat_transaksi.hapus');
     Route::get('search', 'search')->name('riwayat_transaksi.search');
 });
+
+Route::middleware('auth')->group(function () {
+    Route::get('home', function () {
+        return view('home');
+    })->name('home');
+});
