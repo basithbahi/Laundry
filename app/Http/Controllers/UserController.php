@@ -13,6 +13,14 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function show($id)
+     {
+         $user = User::find($id);
+     
+         return view('user.show', ['user' => $user]);
+     }
+
     public function index()
     {
         $user = User::get();
@@ -27,6 +35,11 @@ class UserController extends Controller
 
     public function simpan(Request $request)
     {
+        $image_name='';
+        if($request->file('image')){
+            $image_name = $request->file('image')->store('images', 'public');
+        }
+
         User::create([
             'nik' => $request->nik,
             'nama' => $request->nama,
@@ -35,9 +48,9 @@ class UserController extends Controller
             'jk' => $request->jk,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'foto_profil' => $image_name,
             'level' => 'User'
         ]);
-
         return redirect()->route('user');
     }
 
@@ -50,6 +63,11 @@ class UserController extends Controller
 
     public function update($id, Request $request)
     {
+        $image_name='';
+        if($request->file('image')){
+            $image_name = $request->file('image')->store('images', 'public');
+        }
+
         User::find($id)->update([
             'nik' => $request->nik,
             'nama' => $request->nama,
@@ -58,6 +76,7 @@ class UserController extends Controller
             'jk' => $request->jk,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'foto_profil' => $image_name,
         ]);
 
         return redirect()->route('user');

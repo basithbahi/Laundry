@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('jk');
             $table->string('email');
             $table->string('password');
+            $table->string('foto_profil');
             $table->string('level');
             $table->timestamps();
         });

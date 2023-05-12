@@ -27,6 +27,11 @@ class AdminController extends Controller
 
     public function simpan(Request $request)
     {
+        $image_name='';
+        if($request->file('image')){
+            $image_name = $request->file('image')->store('images', 'public');
+        }
+
         Admin::create([
             'nik' => $request->nik,
             'nama' => $request->nama,
@@ -35,6 +40,7 @@ class AdminController extends Controller
             'jk' => $request->jk,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'foto_profil' => $image_name,
             'level' => 'Admin'
         ]);
 
@@ -50,6 +56,11 @@ class AdminController extends Controller
 
     public function update($id, Request $request)
     {
+        $image_name='';
+        if($request->file('image')){
+            $image_name = $request->file('image')->store('images', 'public');
+        }
+        
         Admin::find($id)->update([
             'nik' => $request->nik,
             'nama' => $request->nama,
@@ -58,6 +69,7 @@ class AdminController extends Controller
             'jk' => $request->jk,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'foto_profil' => $image_name,
         ]);
 
         return redirect()->route('admin');
