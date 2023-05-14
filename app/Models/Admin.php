@@ -11,7 +11,7 @@ class Admin extends Model
 
     protected $table = 'users';
 
-    protected $fillable = ['id_admin', 'nik', 'nama', 'alamat', 'ttl', 'jk', 'email', 'password', 'level'];
+    protected $fillable = ['id_admin', 'nik', 'nama', 'alamat', 'ttl', 'jk', 'email', 'password', 'foto_profil', 'level'];
 
     public function jadwal()
     {

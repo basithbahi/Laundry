@@ -30,6 +30,7 @@
             <th>JK</th>
             <th>email</th>
             <th>password</th>
+            <th>foto profil</th>
             <th>Aksi</th>
             </tr>
         </thead>
@@ -45,6 +46,7 @@
                 <td>{{ $row->jk }}</td>
                 <td>{{ $row->email }}</td>
                 <td>{{ $row->password }}</td>
+                <td>{{ $row->foto_profil }}</td>
                 <td>
                     <a href="{{ route('user.edit', $row->id) }}" class="btn btn-warning">Edit &nbsp;&nbsp;&nbsp;<i class="fas fa-pen"></i></a>
                     <a href="{{ route('user.hapus', $row->id) }}" class="btn btn-danger">Hapus &nbsp;&nbsp;&nbsp;<i class="fas fa-trash-alt "></i></a>

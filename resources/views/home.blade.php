@@ -37,36 +37,6 @@
 </head>
 <body class="animsition">
 
-	<!-- Header -->
-	<header>
-		<!-- Header desktop -->
-		<div class="container-menu-desktop">
-			<!-- Topbar -->
-			<div class="top-bar">
-				<div class="content-topbar flex-sb-m h-full container">
-					<div class="left-top-bar">
-						Free shipping for standard order over $100
-					</div>
-
-					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							Help & FAQs
-						</a>
-
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							My Account
-						</a>
-
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							EN
-						</a>
-
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							USD
-						</a>
-					</div>
-				</div>
-			</div>
 
 			<div class="wrap-menu-desktop">
 				<nav class="limiter-menu-desktop container">
@@ -122,6 +92,27 @@
 
 						<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
 							<i class="zmdi zmdi-favorite-outline"></i>
+
+						<!-- Nav Item - User Information -->
+						<li class="nav-item dropdown no-arrow">
+						<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<span class="mr-2 d-none d-lg-inline text-gray-600 medium">
+								{{ auth()->user()->nama }}
+							</span>
+						</a>
+						<!-- Dropdown - User Information -->
+						<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+							<a class="dropdown-item" href="#">
+							<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+							Profile
+							</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="{{ route('logout') }}">
+							<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+							Logout
+							</a>
+						</div>
+						</li>
 						</a>
 					</div>
 				</nav>
@@ -850,37 +841,29 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 		$('.js-addwish-b2').on('click', function(e){
 			e.preventDefault();
 		});
-
 		$('.js-addwish-b2').each(function(){
 			var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
 			$(this).on('click', function(){
 				swal(nameProduct, "is added to wishlist !", "success");
-
 				$(this).addClass('js-addedwish-b2');
 				$(this).off('click');
 			});
 		});
-
 		$('.js-addwish-detail').each(function(){
 			var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
-
 			$(this).on('click', function(){
 				swal(nameProduct, "is added to wishlist !", "success");
-
 				$(this).addClass('js-addedwish-detail');
 				$(this).off('click');
 			});
 		});
-
 		/*---------------------------------------------*/
-
 		$('.js-addcart-detail').each(function(){
 			var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
 			$(this).on('click', function(){
 				swal(nameProduct, "is added to cart !", "success");
 			});
 		});
-
 	</script>
 <!--===============================================================================================-->
 	<script src="{{ asset('style/vendor/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
@@ -893,7 +876,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 				scrollingThreshold: 1000,
 				wheelPropagation: false,
 			});
-
 			$(window).on('resize', function(){
 				ps.update();
 			})

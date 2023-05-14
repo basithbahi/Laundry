@@ -25,6 +25,7 @@ class User extends Authenticatable
         'jk',
         'email',
         'password',
+        'foto_profil',
         'level'
     ];
 

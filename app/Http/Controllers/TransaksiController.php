@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use Illuminate\Http\Request;
 use App\Models\Transaksi;
 use App\Models\User;
@@ -121,5 +122,11 @@ class TransaksiController extends Controller
         }
 
         return view('transaksi.index', ['data' => $data, 'query' => $query]);
+    }
+    public function cetak(Request $request)
+    {
+        $transaksi =  Transaksi::all();
+        $pdf = PDF::loadview('transaksi.cetak' ,['transaksi'=>$transaksi]);
+        return $pdf->stream();
     }
 }

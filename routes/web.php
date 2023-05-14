@@ -110,7 +110,7 @@ Route::controller(TransaksiController::class)->prefix('transaksi')->group(functi
     Route::get('bayar/{id}', 'bayar')->name('transaksi.bayar');
     Route::post('bayar/{id}', 'upload')->name('transaksi.bayar.upload');
     Route::get('search', 'search')->name('transaksi.search');
-    Route::get('/riwayat_transaksi', [RiwayatTransaksiController::class, 'index'])->name('riwayat_transaksi.index');
+    Route::get('cetak/{id}', 'cetak') ->name('transaksi.cetak');
 });
 
 Route::controller(RiwayatTransaksiController::class)->prefix('riwayat_transaksi')->group(function () {
@@ -123,7 +123,8 @@ Route::controller(RiwayatTransaksiController::class)->prefix('riwayat_transaksi'
     Route::get('search', 'search')->name('riwayat_transaksi.search');
 });
 
-
-Route::get('/home', function () {
-    return view('home');
+Route::middleware('auth')->group(function () {
+    Route::get('home', function () {
+        return view('home');
+    })->name('home');
 });
