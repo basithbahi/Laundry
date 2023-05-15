@@ -43,7 +43,7 @@
 
 					<!-- Logo desktop -->
 					<a href="#" class="logo">
-						<img src="{{ asset('style/images/icons/logo-01.png')}}" alt="IMG-LOGO">
+						<img src="{{ asset('style/images/icons/Icon-Utama.png')}}" alt="IMG-LOGO" width="150" height="25">
 					</a>
 
 					<!-- Menu desktop -->
