@@ -6,7 +6,7 @@
 
     <form
         action="{{ isset($transaksi) ? route('transaksi.tambah.update', $transaksi->id) : route('transaksi.tambah.simpan') }}"
-        method="post">
+        method="post" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="col-12">

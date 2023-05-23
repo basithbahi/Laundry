@@ -36,7 +36,7 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                             </div>
-                            <form action="{{ route('register.simpan') }}" method="POST" class="user">
+                            <form action="{{ route('register.simpan') }}" method="POST" class="user" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <input name="nik" type="text"
@@ -107,6 +107,11 @@
                                             <span class="invalid-feedback">{{ $message }}</span>
                                         @enderror
                                     </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="image">Foto Profil</label>
+                                        <input type="file" class="form-control" name="image"
+                                        value="{{ isset($user) ? $user->image : '' }}"></br>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-user btn-block">Register
                                     Account</button>
