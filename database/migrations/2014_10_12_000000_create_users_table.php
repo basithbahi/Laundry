@@ -20,13 +20,14 @@ return new class extends Migration
             $table->string('alamat');
             $table->date('ttl');
             $table->string('jk');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('password');
-            $table->string('foto_profil');
+            $table->string('foto_profil')->nullable(); // Tambahkan nullable() di sini
             $table->string('level');
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
