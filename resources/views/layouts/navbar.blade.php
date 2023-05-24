@@ -159,7 +159,6 @@
 					<br>
 					<small>{{ auth()->user()->level }}</small>
 				</span>
-        <img src="{{ asset('storage/' .$row->foto_profil) }}" alt="Foto Profil" width="100">
       </a>
       <!-- Dropdown - User Information -->
       <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
