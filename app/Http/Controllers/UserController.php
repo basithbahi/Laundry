@@ -14,12 +14,12 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function show($id)
-    {
-        $user = User::find($id);
-
-        return view('user.show', ['user' => $user]);
-    }
+     public function show($id)
+     {
+         $user = User::find($id);
+     
+         return view('user.show', ['user' => $user]);
+     }
 
     public function index()
     {
@@ -35,8 +35,8 @@ class UserController extends Controller
 
     public function simpan(Request $request)
     {
-        $image_name = '';
-        if ($request->file('image')) {
+        $image_name='';
+        if($request->file('image')){
             $image_name = $request->file('image')->store('images', 'public');
         }
 
@@ -63,8 +63,8 @@ class UserController extends Controller
 
     public function update($id, Request $request)
     {
-        $image_name = '';
-        if ($request->file('image')) {
+        $image_name='';
+        if($request->file('image')){
             $image_name = $request->file('image')->store('images', 'public');
         }
 
@@ -96,11 +96,11 @@ class UserController extends Controller
         //     return redirect()->route('user')->with('success', 'Data user berhasil dihapus');
         // } catch (FFIException $e) {
         //     return redirect()->back()->withErrors([$e->getMessage()]);
-
+            
         // }
         User::find($id)->delete();
 
-        return redirect()->route('user');
+            return redirect()->route('user');
     }
 
     public function search(Request $request)

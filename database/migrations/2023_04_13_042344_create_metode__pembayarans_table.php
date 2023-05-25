@@ -19,6 +19,11 @@ return new class extends Migration
             $table->string('metode_pembayaran');
             $table->timestamps();
         });
+
+        Schema::table('transaksi', function (Blueprint $table) {
+            $table->dropColumn('metode_pembayaran_transaksi');
+            $table->foreignId('invoice')->references('id')->on('metode_pembayaran');
+        });
     }
 
     /**
