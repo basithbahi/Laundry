@@ -19,3 +19,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('/todos', TodoController::class);
     return $request->user();
 });
+
+Route::post('register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);

@@ -3,8 +3,7 @@
 @section('title', 'Form Admin')
 
 @section('contents')
-    <form action="{{ isset($admin) ? route('admin.tambah.update', $admin->id) : route('admin.tambah.simpan') }}"
-        method="post">
+    <form action="{{ isset($admin) ? route('admin.tambah.update', $admin->id) : route('admin.tambah.simpan') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="col-12">

@@ -18,6 +18,11 @@ class AuthController extends Controller
 
     public function registerSimpan(Request $request)
     {
+        $image_name='';
+        if($request->file('image')){
+            $image_name = $request->file('image')->store('images', 'public');
+        }
+        
         Validator::make($request->all(), [
             'nik' => 'required',
             'nama' => 'required',
@@ -37,7 +42,7 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'foto_profil' => $image_name,
-            'level' => 'Users'
+            'level' => 'User'
         ]);
 
         return redirect()->route('login');
