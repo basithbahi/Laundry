@@ -99,6 +99,7 @@
                                             <span class="invalid-feedback">{{ $message }}</span>
                                         @enderror
                                     </div>
+                                    
                                     <div class="col-sm-6">
                                         <input name="password_confirmation" type="password"
                                             class="form-control form-control-user @error('password_confirmation')is-invalid @enderror"
