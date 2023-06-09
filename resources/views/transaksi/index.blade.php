@@ -16,8 +16,6 @@
           </div>
         </form>
       </div>
-
-
     <div class="card-body">
 			@if (auth()->user()->level == 'Admin')
       <a href="{{ route('transaksi.tambah') }}" class="btn btn-success mb-3"><i class="fas fa-plus"></i>&nbsp;&nbsp;&nbsp;Tambah Transaksi</a>
@@ -54,7 +52,7 @@
                 <td>Rp{{ number_format(($row->berat_cucian * $row->jenis_cucian->harga) + ($row->berat_cucian * $row->tipe_laundry->harga) + ($row->berat_cucian * $row->jenis_pencuci->harga)) }}</td>
 				@if (auth()->user()->level == 'Admin')
                     <td>
-                        <a href="{{ route('transaksi.edit', $row->id) }}" class="btn btn-warning"><i class="fas fa-pen"></i></a>
+                        <a href="{{ route('transaksi.edit',  $row->id) }}" class="btn btn-warning"><i class="fas fa-pen"></i></a>
                         <a href="{{ route('transaksi.hapus', $row->id) }}" class="btn btn-danger"><i class="fas fa-trash-alt "></i></a>
                         <a href="{{ route('transaksi.bayar', $row->id) }}" class="btn btn-info"><i class="fas fa-money-bill "></i></a>
                         <a href="{{ route('transaksi.cetak', $row->id) }}" class="btn btn-info"><i class="fas fa-money-bill "></i></a>

@@ -114,11 +114,11 @@ Route::controller(TransaksiController::class)->prefix('transaksi')->group(functi
 });
 
 Route::controller(RiwayatTransaksiController::class)->prefix('riwayat_transaksi')->group(function () {
-    Route::get('', 'index')->name('riwayat_transaksi');
-    Route::get('tambah', 'tambah')->name('riwayat_transaksi.tambah');
-    Route::post('tambah', 'simpan')->name('riwayat_transaksi.tambah.simpan');
-    Route::get('edit/{id}', 'edit')->name('riwayat_transaksi.edit');
-    Route::post('edit/{id}', 'update')->name('riwayat_transaksi.tambah.update');
+    Route::get('/riwayat_transaksi', [RiwayatTransaksiController::class, 'index'])->name('riwayat_transaksi');
+    Route::get('', 'index')->name('riwayat_transaksi.index');
+    Route::get('bayar/{id}', 'bayar')->name('riwayat_transaksi.bayar');
+    Route::post('bayar/{id}', 'simpan')->name('riwayat_transaksi.bayar.simpan');
+    Route::post('bayar/{id}', 'upload')->name('riwayat_transaksi.bayar.upload');
     Route::get('hapus/{id}', 'hapus')->name('riwayat_transaksi.hapus');
     Route::get('search', 'search')->name('riwayat_transaksi.search');
 });

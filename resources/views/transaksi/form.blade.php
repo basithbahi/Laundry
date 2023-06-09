@@ -24,13 +24,9 @@
                         <div class="form-group">
                             <label for="id_user">User</label>
                             <select name="id_user" id="id_user" class="custom-select">
-                                <option value="" selected disabled hidden>-- Pilih User--</option>
-                                @foreach ($user as $row)
-                                    <option value="{{ $row->id }}"
-                                        {{ isset($transaksi) ? ($transaksi->id_user == $row->id ? 'selected' : '') : '' }}>
-                                        {{ $row->nama }}
-                                    </option>
-                                @endforeach
+                                <option value="{{ auth()->user()->id }}">
+                                    {{ auth()->user()->nama }}
+                                </option>
                             </select>
                         </div>
                         <div class="form-group">

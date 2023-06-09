@@ -9,7 +9,7 @@ class RiwayatTransaksi extends Model
 {
     use HasFactory;
 
-    protected $table = 'riwayat_transaki';
+    protected $table = 'riwayat_transaksi';
 
     protected $fillable = ['id_riwayat_transaki', 'id_transaksi', 'metode_pembayaran', 'total_bayar'];
 

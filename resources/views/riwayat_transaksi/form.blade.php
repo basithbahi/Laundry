@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Form Bayar Transaksi')
+@section('title', 'Form Riwayat Transaksi')
 
 @section('contents')
 

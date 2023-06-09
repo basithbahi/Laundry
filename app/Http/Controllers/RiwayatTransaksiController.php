@@ -18,16 +18,30 @@ class RiwayatTransaksiController extends Controller
 
         return view('riwayat_transaksi.index', ['data' => $riwayat_transaksi]);
     }
-
-    public function tambah()
+    public function simpan(Request $request)
     {
-        $transaksi = Transaksi::get();
-        $metode_pembayaran = MetodePembayaran::get();
+        $data = [
+            'id_riwayat_transaksi' => $request->id_riwayat_transaksi,
+            'id_transaksi' => $request->id_transaksi,
+            'metode_pembayaran' => $request->metode_pembayaran,
+            'total_bayar' => $request->total_bayar,
+            
+        ];
 
-        return view('riwayat_transaksi.form', ['transaksi' => $transaksi, 'metode_pembayaran' => $metode_pembayaran]);
+        RiwayatTransaksi::create($data);
+
+        return redirect()->route('riwayat_transaksi');
     }
 
-    public function simpan(Request $request)
+    public function bayar($id)
+    {
+        $riwayat_transaksi = RiwayatTransaksi::find($id);
+        $metode_pembayaran = MetodePembayaran::find($id);
+
+        return view('riwayat_transaksi.bayar', ['riwayat_transaksi' => $riwayat_transaksi, 'metode_pembayaran' => $metode_pembayaran]);
+    }
+
+    public function upload(Request $request)
     {
         $data = [
             'id_riwayat_transaksi' => $request->id_riwayat_transaksi,
@@ -37,29 +51,6 @@ class RiwayatTransaksiController extends Controller
         ];
 
         RiwayatTransaksi::create($data);
-
-        return redirect()->route('riwayat_transaksi');
-    }
-
-    public function edit($id)
-    {
-        $riwayat_transaksi = RiwayatTransaksi::find($id);
-        $transaksi = Transaksi::find($id);
-        $metode_pembayaran = MetodePembayaran::find($id);
-
-        return view('riwayat_transaksi.form', ['riwayat_transaksi' => $riwayat_transaksi, 'transaksi' => $transaksi, 'metode_pembayaran' => $metode_pembayaran]);
-    }
-
-    public function update($id, Request $request)
-    {
-        $data = [
-            'id_riwayat_transaksi' => $request->id_riwayat_transaksi,
-            'id_transaksi' => $request->id_transaksi,
-            'metode_pembayaran' => $request->metode_pembayaran,
-            'total_bayar' => $request->total_bayar,
-        ];
-
-        RiwayatTransaksi::find($id)->update($data);
 
         return redirect()->route('riwayat_transaksi');
     }

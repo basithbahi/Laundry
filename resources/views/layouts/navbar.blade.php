@@ -159,6 +159,7 @@
 					<br>
 					<small>{{ auth()->user()->level }}</small>
 				</span>
+        <img class="rounded-circle" src="{{ asset('storage/' .auth()->user()->foto_profil) }}" alt="Foto Profil" width="50" height="50" >
       </a>
       <!-- Dropdown - User Information -->
       <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

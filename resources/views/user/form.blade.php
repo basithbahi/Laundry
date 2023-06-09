@@ -60,7 +60,7 @@
                                 value="{{ isset($user) ? $user->password : '' }}">
                         </div>
                         <div class="form-group">
-                            <label for="foot_profil">Foto Profil</label>
+                            <label for="foto_profil">Foto Profil</label>
                             <input type="file" class="form-control" name="foto_profil" id="foto_profil" aria-describedby="foto_profil">
                                 <!-- value="{{ isset($user) ? $user->image : '' }}"></br> -->
                         </div>
