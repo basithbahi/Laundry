@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Requests;
-
 use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\ApiRequest;
+use Illuminate\Http\Response;
 
 class RegisterRequest extends ApiRequest
 {
@@ -22,9 +23,15 @@ class RegisterRequest extends ApiRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255',
+            'nik' => 'required|string|max:255',
+            'nama' => 'required|string|max:255',
+            'alamat' => 'required|string|max:255',
+            'ttl' => 'required|date',
+            'jk' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8'
+            'password' => 'required|string|min:8',
+            'foto_profil' => 'nullable|image',
+            'level' => 'required|string|max:255',
         ];
     }
 }

@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Requests;
+use App\Http\Requests\ApiRequest;
+use Illuminate\Http\Response;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -9,7 +11,7 @@ class LoginRequest extends ApiRequest
     /**
      * Determine if the user is authorized to make this request.
      */
-    public function authorize(): bool
+    public function authorize()
     {
         return true;
     }
@@ -19,7 +21,7 @@ class LoginRequest extends ApiRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
      */
-    public function rules(): array
+    public function rules()
     {
         return [
             'email' => 'required|string|email',

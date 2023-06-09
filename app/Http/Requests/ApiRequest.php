@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Requests;
-
+use App\Traits\ApiResponse;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
 
 abstract class ApiRequest extends FormRequest
 {

@@ -31,7 +31,9 @@ class AdminController extends Controller
         if($request->file('image')){
             $image_name = $request->file('image')->store('images', 'public');
         }
-
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('images'), $imageName);
+        
         Admin::create([
             'nik' => $request->nik,
             'nama' => $request->nama,
@@ -69,7 +71,7 @@ class AdminController extends Controller
             'jk' => $request->jk,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'foto_profil' => $image_name,
+            'foto_profil' => $image_name, 
         ]);
 
         return redirect()->route('admin');
